@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carga de formatos — IN01</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header>
+  <span class="dot"></span>
+  <h1>Carga de formatos Wiegand — IN01</h1>
+  <span class="sub" id="hdrsub"></span>
+</header>
+
+<div class="wrap">
+  <!-- 1. RELOJ -->
+  <div class="card">
+    <h2><span class="n">1</span> Reloj</h2>
+    <label class="lbl">Reloj destino (SN)</label>
+    <select id="sn"></select>
+    <div class="row">
+      <span class="devchip" id="devchip"><span class="d"></span><span id="devtxt">Esperando relojes…</span></span>
+    </div>
+    <div class="hint" id="snhint">El reloj aparece aquí cuando está apuntado a este PC. Si no aparece,
+      revisa IP y puerto en el reloj (ver manual).</div>
+  </div>
+
+  <!-- 2. FORMATO -->
+  <div class="card">
+    <h2><span class="n">2</span> Formato</h2>
+    <div id="formatos"></div>
+  </div>
+
+  <!-- 3. CARGA -->
+  <div class="card full">
+    <h2><span class="n">3</span> Cargar</h2>
+    <div class="row" style="margin-top:0">
+      <button class="btn ghost" id="btnprev">Ver qué se va a hacer</button>
+      <button class="btn yellow" id="btnload">Cargar en el reloj (se reinicia)</button>
+    </div>
+    <div class="cmdbox" id="prevbox" style="display:none"></div>
+    <div class="msg" id="loadmsg"></div>
+    <div class="hint">Antes de cambiar nada se guarda una copia de la base del reloj
+      (<code>ZKDB.bak</code>). El reloj se reinicia solo y tarda 1–2 minutos en volver.</div>
+  </div>
+
+  <!-- 4. VERIFICAR / DESHACER -->
+  <div class="card full">
+    <h2><span class="n">4</span> Verificar o deshacer</h2>
+    <div class="row" style="margin-top:0">
+      <button class="btn ghost" id="btnvfetch">1. Pedir copia al reloj</button>
+      <button class="btn" id="btnvcheck">2. Comprobar formato activo</button>
+      <button class="btn danger" id="btnrollback">Deshacer última carga</button>
+    </div>
+    <div class="msg" id="vmsg"></div>
+    <div class="hint">Cuando el reloj vuelva, pide la copia, espera unos segundos y comprueba. Si
+      algo salió mal, <b>Deshacer</b> restaura la copia guardada antes de la carga.</div>
+  </div>
+
+  <!-- ACTIVIDAD -->
+  <div class="card full">
+    <h2>Actividad</h2>
+    <div class="cmdbox log" id="logbox">—</div>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

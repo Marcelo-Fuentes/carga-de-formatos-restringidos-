@@ -1,0 +1,211 @@
+{
+  "_comentario": "Formatos que el operador puede cargar. Solo los que tienen \"habilitado\": true aparecen en la app. Para agregar uno, crealo y pruebalo en la app completa (formatos-wiegand-custom), guardalo como preconfigurado y copia su entrada de user_presets.json aqui. Ver docs/ADMINISTRADOR.md.",
+  "formatos": [
+    {
+      "name": "Wiegand26a - numero impreso",
+      "descripcion": "Tarjetas de 26 bits. El reloj registra el numero impreso en la tarjeta (16 bits de card; el site se ignora). Probado con tarjetas 6132, 6127, 8077 y 19121.",
+      "habilitado": true,
+      "estado": "probado",
+      "spec": {
+        "name": "Wiegand26a",
+        "card_format": "ESSSSSSSSCCCCCCCCCCCCCCCCO",
+        "parities": [
+          {
+            "kind": "even",
+            "covers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ]
+          },
+          {
+            "kind": "odd",
+            "covers": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ]
+          }
+        ],
+        "format_type": 3,
+        "status": 1,
+        "site_code": 0
+      }
+    },
+    {
+      "name": "Wiegand26 - numero completo (fabrica)",
+      "descripcion": "Formato de fabrica del IN01. Tarjetas de 26 bits; el reloj registra site y card juntos como un solo numero (ej. 144,6132 -> 9443572). Sirve para volver al estado original.",
+      "habilitado": true,
+      "estado": "fabrica",
+      "spec": {
+        "name": "Wiegand26",
+        "card_format": "ECCCCCCCCCCCCCCCCCCCCCCCCO",
+        "parities": [
+          {
+            "kind": "even",
+            "covers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ]
+          },
+          {
+            "kind": "odd",
+            "covers": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ]
+          }
+        ],
+        "format_type": 3,
+        "status": 1,
+        "site_code": 0
+      }
+    },
+    {
+      "name": "HID Corporate 1000 - 35 bits",
+      "descripcion": "Tarjetas HID de 35 bits (12 bits company + 20 bits de tarjeta). El reloj registra el numero impreso. EN PRUEBA: aun no confirmado en el IN01 (paridades cruzadas).",
+      "habilitado": false,
+      "estado": "en prueba",
+      "spec": {
+        "name": "HIDCorp35",
+        "card_format": "OESSSSSSSSSSSSCCCCCCCCCCCCCCCCCCCCO",
+        "parities": [
+          {
+            "kind": "odd",
+            "covers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34
+            ]
+          },
+          {
+            "kind": "even",
+            "covers": [
+              2,
+              3,
+              5,
+              6,
+              8,
+              9,
+              11,
+              12,
+              14,
+              15,
+              17,
+              18,
+              20,
+              21,
+              23,
+              24,
+              26,
+              27,
+              29,
+              30,
+              32,
+              33
+            ]
+          },
+          {
+            "kind": "odd",
+            "covers": [
+              1,
+              2,
+              4,
+              5,
+              7,
+              8,
+              10,
+              11,
+              13,
+              14,
+              16,
+              17,
+              19,
+              20,
+              22,
+              23,
+              25,
+              26,
+              28,
+              29,
+              31,
+              32
+            ]
+          }
+        ],
+        "format_type": 3,
+        "status": 1,
+        "site_code": 0
+      }
+    }
+  ]
+}
